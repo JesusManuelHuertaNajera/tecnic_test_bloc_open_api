@@ -10,8 +10,9 @@ class CountriesEndpoints {
     List<CountryModel> movieList = [];
     try {
       ApiMethod api = ApiMethod();
+      //get specific information on the response
       Map<String, String> queryParams = {
-        'fields': 'name,capital,currencies',
+        'fields': 'name,capital,currencies,flags',
       };
       http.Response response = await api.apiGet(
           request: "name/$countryName", queryParams: queryParams);
@@ -35,8 +36,10 @@ class CountriesEndpoints {
     List<CountryModel> movieList = [];
     try {
       ApiMethod api = ApiMethod();
+      //get specific information on the response
+
       Map<String, String> queryParams = {
-        'fields': 'name,capital,currencies',
+        'fields': 'name,capital,currencies,flags',
       };
       http.Response response =
           await api.apiGet(request: "all", queryParams: queryParams);

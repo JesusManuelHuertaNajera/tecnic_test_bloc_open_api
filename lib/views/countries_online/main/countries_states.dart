@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tecnic_test_bloc_open_api/components/country_information.dart';
+import 'package:tecnic_test_bloc_open_api/components/country_card_information/country_information.dart';
 import 'package:tecnic_test_bloc_open_api/components/error_load_api.dart';
 import 'package:tecnic_test_bloc_open_api/components/loader.dart';
 import 'package:tecnic_test_bloc_open_api/cubits/countries_information_api.dart';
@@ -24,7 +24,7 @@ class CountryView extends StatelessWidget {
         return ListView(
           padding: EdgeInsets.all(SpacesBetweenContent.pading),
           children: [
-            ...loadedState.countries.map((country) => contentCountry(country))
+            ...loadedState.countries.map((country) => contentCountry(model: country))
           ],
         );
 

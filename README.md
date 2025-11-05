@@ -30,6 +30,75 @@ Abre la terminal (CMD o PowerShell) y ejecuta:
 java -version
 ```
 
+##  Árbol de directorios
+
+```bash
++---lib
+|   |   main.dart
+|   |
+|   +---components
+|   |   |   button.dart
+|   |   |   custom_input.dart
+|   |   |   error_load_api.dart
+|   |   |   loader.dart
+|   |   |   snack.dart
+|   |   |
+|   |   \---country_card_information
+|   |           country_action_buttons.dart
+|   |           country_detail_information.dart
+|   |           country_information.dart
+|   |
+|   +---cubits
+|   |       countries_information_api.dart
+|   |       countries_information_db.dart
+|   |       countries_information_search_api.dart
+|   |
+|   +---models
+|   |       country_model.dart
+|   |
+|   +---services
+|   |   +---API
+|   |   |   |   main.dart
+|   |   |   |
+|   |   |   \---methods
+|   |   |       \---countries
+|   |   |               main.dart
+|   |   |
+|   |   +---BD
+|   |   |       main.dart
+|   |   |
+|   |   \---configuration
+|   |       +---envs
+|   |       |       main.dart
+|   |       |
+|   |       \---styles
+|   |               spaces_between.dart
+|   |               text_styles.dart
+|   |
+|   \---views
+|       +---countries_local
+|       |       countries_page_main.dart
+|       |       countries_states.dart
+|       |
+|       +---countries_online
+|       |   +---main
+|       |   |       countries_page_main.dart
+|       |   |       countries_states.dart
+|       |   |
+|       |   \---search
+|       |       |   countries_search_page.dart
+|       |       |   countries_search_states.dart
+|       |       |
+|       |       \---components
+|       |               search_bar.dart
+|       |               search_body.dart
+|       |
+|       \---country_details
+|               country_detail_page.dart
+|
+\---test
+        widget_test.dart
+```
 
 
 ---
@@ -50,3 +119,24 @@ Además, agregué **clases globales** para estandarizar:
 - Los estilos de texto,  
 - Los espacios entre componentes, y  
 - El consumo de servicios (como los endpoints).
+
+#  Adicionales
+
+En caso de ser necesario, se recomienda utilizar **FVM (Flutter Version Manager)** para manejar versiones específicas de Flutter y garantizar compatibilidad con el proyecto.
+
+### 🔧 Instalación y configuración de FVM
+
+```bash
+dart pub global activate fvm
+fvm install 3.24.3
+fvm use 3.24.3
+```
+# Descargar APK
+
+Haz clic en el botón o en el enlace para descargar el APK desde Google Drive.
+
+> ⚠️ Asegúrate de que el archivo en Drive tenga permisos: **Cualquiera con el enlace puede ver/descargar**.
+
+[⬇️ Descargar APK (enlace directo)](https://drive.google.com/file/d/13ad30hiFMprmFxAUqsouurrAd5dmoCnZ/view?usp=sharing)
+
+

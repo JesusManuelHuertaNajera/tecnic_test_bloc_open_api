@@ -29,33 +29,53 @@ class DatabaseService {
       name_official TEXT NOT NULL,
       capital TEXT,
       currencies TEXT,
-      native_names TEXT
+      native_names TEXT,
+      flag TEXT
     )
     ''');
   }
 
-  Future<int> insertCountry(CountryModel catalog) async {
+  Future<int> insertCountry(CountryModel country) async {
     final db = await database;
+    final existing = await db.query(
+      tableCountry,
+      where: "id = ? OR name_official = ?",
+      whereArgs: [country.id, country.nameOfficial],
+    );
+    if (existing.isNotEmpty) {
+      return 0;
+    }
+
     try {
-      return await db.insert(tableCountry, catalog.toMap());
+      return await db.insert(tableCountry, country.toMap());
     } catch (e) {
       return 0;
     }
   }
 
-  Future<List<CountryModel>> selectLocalCountries(String type) async {
+  Future<List<CountryModel>> selectLocalCountries() async {
     final db = await database;
-    final result = await db.query(
-      tableCountry,
-      //where: "type = ?",
-      // whereArgs: [type],
-    );
+    final result = await db.query(tableCountry);
 
     return result.map((map) => CountryModel.fromMap(map)).toList();
   }
 
-  Future<int> deleteAllCatalogs(int id) async {
+  Future<int> deleteCountry(int id) async {
     final db = await database;
     return await db.delete(tableCountry, where: "id = ?", whereArgs: [id]);
+  }
+
+  Future<int> updateCountry(CountryModel country) async {
+    final db = await database;
+    try {
+      return await db.update(
+        tableCountry,
+        country.toMap(),
+        where: "id = ?",
+        whereArgs: [country.id],
+      );
+    } catch (e) {
+      return 0;
+    }
   }
 }
